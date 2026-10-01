@@ -1,0 +1,52 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        PIP_UPLOADED_PRIOR_TO: "P3D"
+    command: sh -c "sleep infinity"
+    environment:
+      PIP_UPLOADED_PRIOR_TO: "P3D"
+    depends_on:
+      - postgres
+    container_name: mvj-dev
+    restart: unless-stopped
+    volumes:
+      - ../.devcontainer:/workspace/.devcontainer:cached,Z
+      - ${DEV_REPO_API:?Set DEV_REPO_API in .env}:/workspace/api:cached,Z
+      - ${DEV_REPO_UI:?Set DEV_REPO_UI in .env}:/workspace/ui:cached,Z
+      - ${DEV_REPO_UI_PUBLIC:?Set DEV_REPO_UI_PUBLIC in .env}:/workspace/ui-public:cached,Z
+      - mvj-django-media-volume:/var/media/:Z
+    network_mode: service:postgres
+    userns_mode: keep-id
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 512
+
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mvj
+      POSTGRES_PASSWORD: mvj
+      POSTGRES_DB: mvj-db
+      POSTGRES_PORT: 5433
+    volumes:
+      - mvj-postgres-14-data-volume:/var/lib/postgresql/data
+    container_name: mvj-dev-db
+    expose:
+      - "5433"
+    ports:
+      - "5433:5433"
+    command: -p 5433
+
+volumes:
+  mvj-django-media-volume:
+  mvj-postgres-14-data-volume:
+    external: true
+    name: mvjdevcontainer_mvj-postgres-14-data-volume

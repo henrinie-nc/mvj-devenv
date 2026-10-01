@@ -1,0 +1,52 @@
+{
+  "name": "MVJ development environment",
+  "dockerComposeFile": "compose.yaml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "features": {
+    "ghcr.io/devcontainers/features/node:2.1.0": {
+      "version": "${localEnv:NODE_VERSION:24}"
+    }
+  },
+  "forwardPorts": [5433, 8001, 3000, 3001],
+  // Unable to configure these for ghcr.io/devcontainers/features/python:1
+  // The mounted API checkout is available only after the image is built.
+  "postCreateCommand": "bash .devcontainer/install-python-dependencies.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.cwd": "/workspace",
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "isort.path": ["/home/vscode/.local/bin/isort"],
+				"isort.args":["--profile", "black"],
+				"isort.interpreter": ["/usr/local/bin/python3"],
+        "flake8.path": ["/usr/local/py-utils/bin/flake8"],
+        "black-formatter.path": ["/home/vscode/.local/bin/black"],
+				"black-formatter.interpreter": ["/usr/local/bin/python3"],
+				"editor.codeActionsOnSave": {
+					"source.fixAll.eslint": "never"
+				},
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true,
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "always"
+					}
+				}
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"ms-python.isort"
+      ]
+      // If you want extra extensions, add them to your local settings.json:
+			// "dev.containers.defaultExtensions": [],
+    }
+  }
+}
