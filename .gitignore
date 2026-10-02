@@ -1,5 +1,8 @@
-.env
+**/.env
 node_modules/
 dist/
+/api/
+/ui/
+/ui-public/
 
 **/docker-compose.env
