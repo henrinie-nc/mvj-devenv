@@ -10,7 +10,12 @@
       "version": "${localEnv:NODE_VERSION:24}"
     }
   },
-  "forwardPorts": [5433, 8001, 3000, 3001],
+  "forwardPorts": [
+    5433,
+    8001,
+    3000,
+    4000
+  ],
   // Unable to configure these for ghcr.io/devcontainers/features/python:1
   // The mounted API checkout is available only after the image is built.
   "postCreateCommand": "bash .devcontainer/install-python-dependencies.sh",
