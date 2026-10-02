@@ -6,6 +6,8 @@ services:
       args:
         PIP_UPLOADED_PRIOR_TO: "P3D"
     command: sh -c "sleep infinity"
+    env_file:
+      - docker-compose.env
     environment:
       PIP_UPLOADED_PRIOR_TO: "P3D"
     depends_on:
