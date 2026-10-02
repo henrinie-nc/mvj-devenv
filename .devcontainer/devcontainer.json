@@ -22,6 +22,10 @@
         "git.openRepositoryInParentFolders": "always",
         "git.repositoryScanMaxDepth": 2,
         "python.defaultInterpreterPath": "/usr/local/bin/python3.12",
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestArgs": ["api"],
+        "vitest.workspaceConfig": "/workspace/vitest.workspace.js",
         "isort.path": ["/home/vscode/.local/bin/isort"],
         "isort.args": ["--profile", "black"],
         "isort.interpreter": ["/usr/local/bin/python3.12"],
@@ -53,7 +57,8 @@
         "ms-python.vscode-pylance",
         "ms-python.black-formatter",
         "ms-python.flake8",
-        "ms-python.isort"
+        "ms-python.isort",
+        "vitest.explorer"
       ]
       // If you want extra extensions, add them to your local settings.json:
       // "dev.containers.defaultExtensions": [],
