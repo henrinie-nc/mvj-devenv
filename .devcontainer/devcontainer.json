@@ -23,7 +23,9 @@
     "vscode": {
       "settings": {
         "terminal.integrated.cwd": "/workspace",
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "git.autoRepositoryDetection": "subFolders",
+        "git.openRepositoryInParentFolders": "always",
+        "git.repositoryScanMaxDepth": 2,
         "isort.path": [
           "/home/vscode/.local/bin/isort"
         ],

@@ -15,7 +15,7 @@ services:
     container_name: mvj-dev
     restart: unless-stopped
     volumes:
-      - ../.devcontainer:/workspace/.devcontainer:cached,Z
+      - ..:/workspace:cached,Z
       - ${DEV_REPO_API:?Set DEV_REPO_API in .env}:/workspace/api:cached,Z
       - ${DEV_REPO_UI:?Set DEV_REPO_UI in .env}:/workspace/ui:cached,Z
       - ${DEV_REPO_UI_PUBLIC:?Set DEV_REPO_UI_PUBLIC in .env}:/workspace/ui-public:cached,Z
