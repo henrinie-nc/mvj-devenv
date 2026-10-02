@@ -26,6 +26,7 @@
         "git.autoRepositoryDetection": "subFolders",
         "git.openRepositoryInParentFolders": "always",
         "git.repositoryScanMaxDepth": 2,
+        "python.defaultInterpreterPath": "/usr/local/bin/python3.12",
         "isort.path": [
           "/home/vscode/.local/bin/isort"
         ],
@@ -34,7 +35,7 @@
           "black"
         ],
         "isort.interpreter": [
-          "/usr/local/bin/python3"
+          "/usr/local/bin/python3.12"
         ],
         "flake8.path": [
           "/usr/local/py-utils/bin/flake8"
@@ -43,7 +44,7 @@
           "/home/vscode/.local/bin/black"
         ],
         "black-formatter.interpreter": [
-          "/usr/local/bin/python3"
+          "/usr/local/bin/python3.12"
         ],
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "never"
