@@ -10,12 +10,7 @@
       "version": "${localEnv:NODE_VERSION:24}"
     }
   },
-  "forwardPorts": [
-    5433,
-    8001,
-    3000,
-    4000
-  ],
+  "forwardPorts": [5433, 8001, 3000, 4000],
   // Unable to configure these for ghcr.io/devcontainers/features/python:1
   // The mounted API checkout is available only after the image is built.
   "postCreateCommand": "bash .devcontainer/install-python-dependencies.sh && corepack enable && (cd ui && corepack install) && (cd ui-public && corepack install)",
@@ -27,25 +22,12 @@
         "git.openRepositoryInParentFolders": "always",
         "git.repositoryScanMaxDepth": 2,
         "python.defaultInterpreterPath": "/usr/local/bin/python3.12",
-        "isort.path": [
-          "/home/vscode/.local/bin/isort"
-        ],
-        "isort.args": [
-          "--profile",
-          "black"
-        ],
-        "isort.interpreter": [
-          "/usr/local/bin/python3.12"
-        ],
-        "flake8.path": [
-          "/usr/local/py-utils/bin/flake8"
-        ],
-        "black-formatter.path": [
-          "/home/vscode/.local/bin/black"
-        ],
-        "black-formatter.interpreter": [
-          "/usr/local/bin/python3.12"
-        ],
+        "isort.path": ["/home/vscode/.local/bin/isort"],
+        "isort.args": ["--profile", "black"],
+        "isort.interpreter": ["/usr/local/bin/python3.12"],
+        "flake8.path": ["/usr/local/py-utils/bin/flake8"],
+        "black-formatter.path": ["/home/vscode/.local/bin/black"],
+        "black-formatter.interpreter": ["/usr/local/bin/python3.12"],
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "never"
         },
