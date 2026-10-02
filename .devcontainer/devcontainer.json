@@ -24,34 +24,47 @@
       "settings": {
         "terminal.integrated.cwd": "/workspace",
         "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "isort.path": ["/home/vscode/.local/bin/isort"],
-				"isort.args":["--profile", "black"],
-				"isort.interpreter": ["/usr/local/bin/python3"],
-        "flake8.path": ["/usr/local/py-utils/bin/flake8"],
-        "black-formatter.path": ["/home/vscode/.local/bin/black"],
-				"black-formatter.interpreter": ["/usr/local/bin/python3"],
-				"editor.codeActionsOnSave": {
-					"source.fixAll.eslint": "never"
-				},
-				"[python]": {
-					"editor.defaultFormatter": "ms-python.black-formatter",
-					"editor.formatOnSave": true,
-					"editor.codeActionsOnSave": {
-						"source.organizeImports": "always"
-					}
-				}
+        "isort.path": [
+          "/home/vscode/.local/bin/isort"
+        ],
+        "isort.args": [
+          "--profile",
+          "black"
+        ],
+        "isort.interpreter": [
+          "/usr/local/bin/python3"
+        ],
+        "flake8.path": [
+          "/usr/local/py-utils/bin/flake8"
+        ],
+        "black-formatter.path": [
+          "/home/vscode/.local/bin/black"
+        ],
+        "black-formatter.interpreter": [
+          "/usr/local/bin/python3"
+        ],
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "never"
+        },
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+          }
+        }
       },
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "ms-python.python",
-				"ms-python.vscode-pylance",
-				"ms-python.black-formatter",
-				"ms-python.flake8",
-				"ms-python.isort"
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.isort"
       ]
       // If you want extra extensions, add them to your local settings.json:
-			// "dev.containers.defaultExtensions": [],
+      // "dev.containers.defaultExtensions": [],
     }
   }
 }
