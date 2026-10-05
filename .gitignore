@@ -1,8 +1,13 @@
 **/.env
+**/docker-compose.env
+
 node_modules/
 dist/
+
+.pytest_cache/
+**/__pycache__/
+
+# Ignore project repositories that track their own Git history
 /api/
 /ui/
 /ui-public/
-
-**/docker-compose.env
