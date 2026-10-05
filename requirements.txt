@@ -1,2 +1,0 @@
-# Required for vscode to discover tests in api/
--r api/requirements.txt
