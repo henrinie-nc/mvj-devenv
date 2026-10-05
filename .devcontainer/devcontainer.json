@@ -30,6 +30,7 @@
         "isort.args": ["--profile", "black"],
         "isort.interpreter": ["/usr/local/bin/python3.12"],
         "flake8.path": ["/usr/local/py-utils/bin/flake8"],
+        "flake8.cwd": "${workspaceFolder}/api",
         "black-formatter.path": ["/home/vscode/.local/bin/black"],
         "black-formatter.interpreter": ["/usr/local/bin/python3.12"],
         "editor.codeActionsOnSave": {
