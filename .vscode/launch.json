@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "API",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "cd ${workspaceFolder}/api && python manage.py runserver 0:8001"
+    },
+    {
+      "name": "API (Debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/api/manage.py",
+      "args": ["runserver", "--noreload", "0:8001"],
+      "cwd": "${workspaceFolder}/api",
+      "django": true,
+      "env": {
+        "DJANGO_SETTINGS_MODULE": "mvj.settings"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "UI Leasing",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "cd ${workspaceFolder}/ui && yarn dev:leasing"
+    },
+    {
+      "name": "UI Landuse",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "cd ${workspaceFolder}/ui && yarn dev:landuse"
+    },
+    {
+      "name": "Public UI",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "cd ${workspaceFolder}/ui-public && yarn dev"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Start all (Leasing)",
+      "configurations": ["API", "UI Leasing"],
+      "stopAll": true
+    },
+    {
+      "name": "Start all (Landuse)",
+      "configurations": ["API", "UI Landuse"],
+      "stopAll": true
+    }
+  ]
+}
