@@ -14,6 +14,7 @@
   // Unable to configure these for ghcr.io/devcontainers/features/python:1
   // The mounted API checkout is available only after the image is built.
   "postCreateCommand": "bash .devcontainer/install-python-dependencies.sh && corepack enable && (cd ui && corepack install) && (cd ui-public && corepack install)",
+  "postStartCommand": "bash .devcontainer/configure-git-signing.sh",
   "customizations": {
     "vscode": {
       "settings": {

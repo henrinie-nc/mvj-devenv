@@ -19,6 +19,8 @@ services:
       - ${DEV_REPO_API:?Set DEV_REPO_API in .env}:/workspace/api:cached,Z
       - ${DEV_REPO_UI:?Set DEV_REPO_UI in .env}:/workspace/ui:cached,Z
       - ${DEV_REPO_UI_PUBLIC:?Set DEV_REPO_UI_PUBLIC in .env}:/workspace/ui-public:cached,Z
+      - ${DEV_GIT_SIGNING_PUBLIC_KEY:?Set DEV_GIT_SIGNING_PUBLIC_KEY in .env}:/home/vscode/.ssh/git-signing-key.pub:ro,Z
+      - ${DEV_GITHUB_AUTH_PUBLIC_KEY:?Set DEV_GITHUB_AUTH_PUBLIC_KEY in .env}:/home/vscode/.ssh/github-auth-key.pub:ro,Z
       - mvj-django-media-volume:/var/media/:Z
     network_mode: service:postgres
     userns_mode: keep-id
