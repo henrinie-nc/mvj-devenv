@@ -14,7 +14,7 @@ This Dev Container combines separately managed host repositories into one VS Cod
 	cp .devcontainer/.env.example .devcontainer/.env
 	```
 
-2. Set each variable in `.devcontainer/.env` to the absolute host path of the corresponding repository.
+2. Set each variable in `.devcontainer/.env` to the absolute host path of the corresponding repository or file.
 
 	On Windows, use Windows-style paths, for example `C:/path/to/api-repo`.
 
@@ -29,6 +29,24 @@ This Dev Container combines separately managed host repositories into one VS Cod
 5. Open the repository in VS Code and rebuild the Dev Container.
 
 Rebuild the container after changing repository paths, runtime environment variables, tool versions, or API dependencies.
+
+## Git authentication and commit signing
+
+VS Code Dev Containers copies the host Git configuration and forwards its Git
+credential helper and SSH agent. This supports HTTPS pushes and SSH pushes
+without copying private credentials into the container.
+
+After rebuilding, verify the setup inside the container:
+
+```bash
+ssh-add -l
+git config --show-origin --get user.signingkey
+git config --get gpg.format  # should be "ssh"
+$(git config --get core.sshCommand) -T git@github.com  # should name the account with access
+git commit --allow-empty -m "Verify devcontainer signing"
+git log -1 --show-signature
+git push --dry-run origin HEAD
+```
 
 ## Database
 
