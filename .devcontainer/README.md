@@ -36,6 +36,20 @@ VS Code Dev Containers copies the host Git configuration and forwards its Git
 credential helper and SSH agent. This supports HTTPS pushes and SSH pushes
 without copying private credentials into the container.
 
+For PGP commit signing on Linux, export the public signing key and set
+`DEV_GIT_SIGNING_PUBLIC_KEY` in `.devcontainer/.env` to the resulting file:
+
+```bash
+gpg --armor --export YOUR_KEY_ID > ~/.gnupg/exports/signing-key.asc
+```
+
+```dotenv
+DEV_GIT_SIGNING_PUBLIC_KEY=/home/your-user/.gnupg/exports/signing-key.asc
+```
+
+Keep `DEV_GITHUB_AUTH_PUBLIC_KEY` pointed at the SSH public key used for
+GitHub authentication.
+
 After rebuilding, verify the setup inside the container:
 
 ```bash
