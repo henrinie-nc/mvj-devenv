@@ -7,6 +7,10 @@ dist/
 .pytest_cache/
 **/__pycache__/
 
+# User-specific VS Code settings
+launch.json
+settings.json
+
 # Ignore project repositories that track their own Git history
 /api/
 /ui/
