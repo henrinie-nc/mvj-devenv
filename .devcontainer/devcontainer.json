@@ -22,6 +22,8 @@
         "git.autoRepositoryDetection": "subFolders",
         "git.openRepositoryInParentFolders": "always",
         "git.repositoryScanMaxDepth": 2,
+        // Allows VSCode search to find sub repository directories, as they are in root .gitignore
+        "search.useIgnoreFiles": false,
         "python.defaultInterpreterPath": "/usr/local/bin/python3.12",
         "python.testing.pytestEnabled": true,
         "python.testing.unittestEnabled": false,
