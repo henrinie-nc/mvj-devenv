@@ -46,7 +46,7 @@
   ],
   "compounds": [
     {
-      "name": "Start all (Leasing)",
+      "name": "Start Leasing",
       "configurations": [
         "API",
         "UI Leasing"
@@ -54,9 +54,18 @@
       "stopAll": true
     },
     {
-      "name": "Start all (Landuse)",
+      "name": "Start Landuse",
       "configurations": [
         "API",
+        "UI Landuse"
+      ],
+      "stopAll": true
+    },
+    {
+      "name": "Start all (Leasing + Landuse)",
+      "configurations": [
+        "API",
+        "UI Leasing",
         "UI Landuse"
       ],
       "stopAll": true
